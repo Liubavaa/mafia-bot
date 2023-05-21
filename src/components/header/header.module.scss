@@ -1,0 +1,14 @@
+.root {
+  background-color: black;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  min-width: 280px;
+}
+.nav {
+  display: flex;
+  align-items: center;
+  justify-items: end;
+  min-width: auto;
+  gap: 10px;
+}
