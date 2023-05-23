@@ -1,5 +1,5 @@
 import styles from './header.module.scss';
-import { BrowserRouter, Route, Link } from "react-router-dom";
+import { BrowserRouter, Route, Link } from 'react-router-dom';
 import classNames from 'classnames';
 
 export interface HeaderProps {
@@ -17,6 +17,9 @@ export const Header = ({ className }: HeaderProps) => {
             <nav className={styles.nav}>
                 <a href="/" className={styles.nav_link}>
                     Home
+                </a>
+                <a href="/game" className={styles.nav_link}>
+                    StartGame
                 </a>
                 <a className={styles.nav_link} href="/leaderboard">
                     Leaderboard
