@@ -1,6 +1,6 @@
 import styles from './add-user.module.scss';
 import classNames from 'classnames';
-import { useState } from "react";
+import React, { useState } from "react";
 
 export interface AddUserProps {
     className?: string;
@@ -8,34 +8,39 @@ export interface AddUserProps {
 
 const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(contactInfo);
-    setContactInfo({ name: "", email: "", phonenumber: "" });
-  };
+    console.log(formData);
+    setFormData({ nickname: "", password: ""});
+};
 
 export const AddUser = ({ className }: AddUserProps) => {
-    const [contactInfo, setContactInfo] = useState({
+    const [formData, setFormData] = useState({
         nickname: "",
         password: "",
     });
 
+    const [nickname, setNickname] = useState("")
+    const [password, setPassword] = useState("")
+
     return (
         <div className={classNames(styles.root, className)}>
-          <form onSubmit​={handleSubmit}>
+          <form onSubmit = {handleSubmit} className={styles['form']}>
             <h3>Add User</h3>
             <div>
               <input
+                onChange = {(e) => setFormData({...formData, nickname: e.target.value})}
                 type="text"
                 name="nickname"
                 placeholder="Nickname"
-                value={contactInfo.nickname}
+                value={formData.nickname}
               />
             </div>
             <div>
-              <input
+              <input 
+                onChange = {(e) => setFormData({...formData, password: e.target.value})}
                 type="password"
                 name="password"
                 placeholder="Password"
-                value={contactInfo.password}
+                value={formData.password}
               />
             </div>
             <div>
