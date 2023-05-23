@@ -1,12 +1,20 @@
 import styles from './App.module.scss';
-import { Header } from './components/header/header';
-import { MafiaImage } from './components/mafia-image/mafia-image';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Layout } from './components/layout/layout';
+import { HomeMain } from './components/home-main/home-main';
+import { LeaderBoard } from './components/leader-board/leader-board';
 
 function App() {
     return (
         <div className={styles.App}>
-            <Header />
-            <MafiaImage />
+            <BrowserRouter>
+                <Routes>
+                    <Route path="/" element={<Layout />}>
+                    <Route index element={<HomeMain />} />
+                    <Route path="leaderboard" element={<LeaderBoard />} />
+                    </Route>
+                </Routes>
+            </BrowserRouter>
         </div>
     );
 }

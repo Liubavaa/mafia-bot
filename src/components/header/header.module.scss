@@ -4,6 +4,7 @@
   display: flex;
   justify-content: space-between;
   min-width: 280px;
+  padding: 10px;
 }
 .nav {
   display: flex;
@@ -11,4 +12,8 @@
   justify-items: end;
   min-width: auto;
   gap: 10px;
+}
+.nav_link {
+  color: white;
+  text-decoration:none;
 }

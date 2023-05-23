@@ -1,7 +1,9 @@
-import styles from './mafia-image.module.scss';
+import styles from './layout.module.scss';
 import classNames from 'classnames';
+import { Header } from '../header/header';
+import {Outlet} from "react-router-dom";
 
-export interface MafiaImageProps {
+export interface LayoutProps {
     className?: string;
 }
 
@@ -9,13 +11,11 @@ export interface MafiaImageProps {
  * This component was created using Codux's Default new component template.
  * To create custom component templates, see https://help.codux.com/kb/en/article/kb16522
  */
-export const MafiaImage = ({ className }: MafiaImageProps) => {
+export const Layout = ({ className }: LayoutProps) => {
     return (
         <div className={classNames(styles.root, className)}>
-            <img
-                src="https://github.com/Liubavaa/mafia-bot/blob/main/public/big_mafia.jpeg?raw=true"
-                className={styles.big_image}
-            />
+            <Header />
+            <Outlet />
         </div>
     );
 };

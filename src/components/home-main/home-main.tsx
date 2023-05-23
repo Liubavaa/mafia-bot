@@ -1,7 +1,9 @@
-import styles from './mafia-image.module.scss';
+import styles from './home-main.module.scss';
 import classNames from 'classnames';
+import { MafiaImage } from '../mafia-image/mafia-image';
+import { GameMenu } from '../game-menu/game-menu';
 
-export interface MafiaImageProps {
+export interface HomeMainProps {
     className?: string;
 }
 
@@ -9,13 +11,11 @@ export interface MafiaImageProps {
  * This component was created using Codux's Default new component template.
  * To create custom component templates, see https://help.codux.com/kb/en/article/kb16522
  */
-export const MafiaImage = ({ className }: MafiaImageProps) => {
+export const HomeMain = ({ className }: HomeMainProps) => {
     return (
         <div className={classNames(styles.root, className)}>
-            <img
-                src="https://github.com/Liubavaa/mafia-bot/blob/main/public/big_mafia.jpeg?raw=true"
-                className={styles.big_image}
-            />
+            <MafiaImage />
+            <GameMenu />
         </div>
     );
 };
