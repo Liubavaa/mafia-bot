@@ -8,7 +8,7 @@ export interface LoginFormProps {
     playerRole: string;
 }
 
-export const LoginForm = ({ className, onClose, playerNumber, playerRole }: LoginFormProps) => {
+export const LoginForm = ({ className, onClose, playerNumber, playerRole, addName }: LoginFormProps) => {
     const [formData, setFormData] = useState({
         nickname: "",
         password: "",
@@ -19,20 +19,29 @@ export const LoginForm = ({ className, onClose, playerNumber, playerRole }: Logi
     const [nicknameError, setNicknameError] = useState("");
     const [passwordError, setPasswordError] = useState("");
     const [sheriffCard, setSheriffCard] = useState(false);
-
+    const [mafiaCard, setMafiaCard] = useState(false);
+    const [donCard, setDonCard] = useState(false);
+    const [townieCard, setTownieCard] = useState(false);
 
     const handleSubmit = (event) => {
       event.preventDefault();
       setNicknameError('');
       setPasswordError('');
-
       if (formData.nickname != "" && formData.nickname.length < 21 && formData.password.length < 21 && formData.password != "") {
         console.log(formData);
+        addName(formData.nickname, playerNumber);
         setFormData({ nickname: "", password: ""});
         if (playerRole == "Sheriff"){
           setSheriffCard(true);
+        } else if (playerRole == "Mafia"){
+          setMafiaCard(true);
+        } else if (playerRole == "Don"){
+          setDonCard(true);
+        } else {
+          setTownieCard(true);
         }
-        onClose();
+        // setTimeout(function() {}, 3000);
+        // onClose();
       } if (formData.password.length == "" || formData.password.length > 20) {
         setPasswordError('Pssword must have a length between 1 and 20 characters.');
       } if (formData.nickname == "" || formData.nickname.length > 20) {
@@ -45,9 +54,24 @@ export const LoginForm = ({ className, onClose, playerNumber, playerRole }: Logi
         {sheriffCard && (
           <div className="card">
             <h2 style={{ color: 'white' }}>Sheriff</h2>
+            <button onClick={onClose}>Next</button>
           </div>
-        )}
-          {!sheriffCard && (
+        )} {mafiaCard && (
+          <div className="card">
+            <h2 style={{ color: 'white' }}>Mafia</h2>
+            <button onClick={onClose}>Next</button>
+          </div>
+        )} {donCard && (
+          <div className="card">
+            <h2 style={{ color: 'white' }}>Mafia Don</h2>
+            <button onClick={onClose}>Next</button>
+          </div>
+        )} {townieCard && (
+          <div className="card">
+            <h2 style={{ color: 'white' }}>Townie</h2>
+            <button onClick={onClose}>Next</button>
+          </div>
+        )} {!sheriffCard && !mafiaCard && !donCard && !townieCard && (
           <form onSubmit = {handleSubmit} className={styles['form']}>
               <h3>Player {playerNumber}</h3>  
             <div>
