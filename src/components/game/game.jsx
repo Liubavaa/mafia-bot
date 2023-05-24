@@ -1,7 +1,7 @@
 import styles from './game.module.scss';
 import classNames from 'classnames';
 import { LoginForm } from '../login-form/login-form';
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export interface GameProps {
     className?: string;
@@ -9,6 +9,35 @@ export interface GameProps {
 
 export const Game = ({ className }: GameProps) => {
     const [playerNames, setPlayerNames] = useState(["", "", "", "", "", "", "", "", "", ""]);
+    const [timer, setTimer] = useState(60);
+    const [isPaused, setIsPaused] = useState(true);
+
+    useEffect(() => {
+        let interval = null;
+
+        if (!isPaused && timer > 0) {
+            interval = setInterval(() => {
+            setTimer((prevTimer) => prevTimer - 1);
+            }, 1000);
+        }
+
+        return () => {
+            clearInterval(interval);
+        };
+    }, [timer, isPaused]);
+
+    const handleStart = () => {
+        setIsPaused(false);
+    };
+
+    const handlePause = () => {
+        setIsPaused(!isPaused);
+    };
+
+    const handleReset = () => {
+        setTimer(60);
+        setIsPaused(true);
+    };
 
     function shuffleList(list) {
         for (let i = list.length - 1; i > 0; i--) {
@@ -21,7 +50,7 @@ export const Game = ({ className }: GameProps) => {
     const roles = ["Sheriff", "Don", "Mafia", "Mafia", "Mafia", "Townie", 
                         "Townie", "Townie", "Townie", "Townie", "Townie"];
     const playerRoles = shuffleList(roles);
-
+    
     const addName = (name: string, index: number) => {
         console.log(name);
         const updatedPlayerNames = [...playerNames]; // Create a copy of the array
@@ -42,9 +71,27 @@ export const Game = ({ className }: GameProps) => {
     };
 
     const playerNumbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+    var alivePlayers = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1];
     return (
         <div className={classNames(styles.root, className)}>
             {playerNumbers.map((playerNumber) => RenderLoginForm(playerNumber))}
+            <div className={styles["timer-container"]}>
+                <h1 className={styles["timer-text"]}>Timer: {timer} seconds</h1>
+                <div className={styles["button-container"]}>
+                    {isPaused ? (
+                    <button className={styles["start-button"]} onClick={handleStart}>
+                        Start
+                    </button>
+                    ) : (
+                    <button className={styles["pause-button"]} onClick={handlePause}>
+                        Pause
+                    </button>
+                    )}
+                    <button className={styles["reset-button"]} onClick={handleReset}>
+                    Reset
+                    </button>
+                </div>
+            </div>
         </div>
     );
 };
