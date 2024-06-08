@@ -52,8 +52,15 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-### Learn More
+## Design
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Main page
+<img width="1440" alt="image" src="https://github.com/Liubavaa/mafia-bot/assets/92572643/9267cd41-6581-4bd6-88f9-98f47d404a6c">
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### In game
+
+<div align="center">  
+    <img width="483" alt="image" src="https://github.com/Liubavaa/mafia-bot/assets/92572643/f5a95208-0c01-49a3-ad4a-651cb0f669a8">
+    <img width="497" alt="image" src="https://github.com/Liubavaa/mafia-bot/assets/92572643/b5892051-5824-4504-9708-4533df12ddf1">
+    <img width="302" alt="image" src="https://github.com/Liubavaa/mafia-bot/assets/92572643/74425e73-54f0-4197-9876-3f7ece4cf521">
+</div>
