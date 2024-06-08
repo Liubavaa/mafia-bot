@@ -59,8 +59,9 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 
 ### In game
 
+<img width="483" alt="image" src="https://github.com/Liubavaa/mafia-bot/assets/92572643/f5a95208-0c01-49a3-ad4a-651cb0f669a8">
+<img width="497" alt="image" src="https://github.com/Liubavaa/mafia-bot/assets/92572643/b5892051-5824-4504-9708-4533df12ddf1">
+
 <div align="center">  
-    <img width="483" alt="image" src="https://github.com/Liubavaa/mafia-bot/assets/92572643/f5a95208-0c01-49a3-ad4a-651cb0f669a8">
-    <img width="497" alt="image" src="https://github.com/Liubavaa/mafia-bot/assets/92572643/b5892051-5824-4504-9708-4533df12ddf1">
     <img width="302" alt="image" src="https://github.com/Liubavaa/mafia-bot/assets/92572643/74425e73-54f0-4197-9876-3f7ece4cf521">
 </div>
